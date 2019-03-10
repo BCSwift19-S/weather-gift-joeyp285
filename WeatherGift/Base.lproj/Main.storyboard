@@ -83,7 +83,11 @@
         <!--PageVC-->
         <scene sceneID="8pq-PH-81Z">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0LY-4Y-WJH" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0LY-4Y-WJH" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="nVG-8p-tkt" kind="presentation" identifier="ToListVC" id="3Oy-kU-yOh"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIo-1N-6h9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="170" y="-517"/>
@@ -107,16 +111,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="9mX-86-1W0" kind="unwind" identifier="ToPageVC" unwindAction="unwindFromListVCWithSender:" id="m6V-dR-b5j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="62F-rJ-31B">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62F-rJ-31B">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Edit" id="kzU-vz-Ygz"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jzF-hu-bfc"/>
-                                    <barButtonItem title="+" id="tG5-44-OhS"/>
+                                    <barButtonItem systemItem="add" id="tG5-44-OhS"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -124,13 +130,20 @@
                         <constraints>
                             <constraint firstItem="qmr-qZ-AfK" firstAttribute="leading" secondItem="NRm-Tl-d8l" secondAttribute="leading" id="1AA-fm-e3r"/>
                             <constraint firstItem="qmr-qZ-AfK" firstAttribute="top" secondItem="NRm-Tl-d8l" secondAttribute="top" id="2kU-ww-kAe"/>
+                            <constraint firstItem="62F-rJ-31B" firstAttribute="bottom" secondItem="NRm-Tl-d8l" secondAttribute="bottom" id="G6F-Sk-Ecd"/>
+                            <constraint firstItem="62F-rJ-31B" firstAttribute="trailing" secondItem="NRm-Tl-d8l" secondAttribute="trailing" id="Mop-Ho-vcD"/>
+                            <constraint firstItem="62F-rJ-31B" firstAttribute="leading" secondItem="NRm-Tl-d8l" secondAttribute="leading" id="av3-Ol-mDC"/>
                             <constraint firstItem="qmr-qZ-AfK" firstAttribute="trailing" secondItem="NRm-Tl-d8l" secondAttribute="trailing" id="oVf-V3-4An"/>
                             <constraint firstItem="NRm-Tl-d8l" firstAttribute="bottom" secondItem="qmr-qZ-AfK" secondAttribute="bottom" constant="44" id="tqJ-KD-oem"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NRm-Tl-d8l"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="qmr-qZ-AfK" id="GUG-eh-1s0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34V-au-CuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9mX-86-1W0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="896.79999999999995" y="-516.79160419790105"/>
         </scene>

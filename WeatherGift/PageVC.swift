@@ -13,6 +13,7 @@ class PageVC: UIPageViewController {
     var currentPage = 0
     var locationsArray = ["Local City", "Sydney, Australia", "Accra, Ghana", "Uglich, Russia"]
     var pageControl: UIPageControl!
+    var listButton: UIButton!
     var barButtonWidth: CGFloat = 44
     var barButtonHeight: CGFloat = 44
     
@@ -29,8 +30,8 @@ class PageVC: UIPageViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         configurePageControl()
+        configureListButton()
     }
     
     func configurePageControl() {
@@ -45,7 +46,37 @@ class PageVC: UIPageViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.black
         pageControl.numberOfPages = locationsArray.count
         pageControl.currentPage = currentPage
+        pageControl.addTarget(self, action: #selector(pageControlPressed), for: .touchUpInside)
         view.addSubview(pageControl)
+    }
+    
+    func configureListButton() {
+        let safeHeight = view.frame.height - view.safeAreaInsets.bottom
+        
+        listButton = UIButton(frame: CGRect(x: view.frame.width - barButtonWidth, y: safeHeight - barButtonHeight, width: barButtonWidth, height: barButtonHeight))
+        
+        listButton.setImage(UIImage(named: "listbutton"), for: .normal)
+        listButton.setImage(UIImage(named: "listbutton-highlighted"), for: .highlighted)
+        listButton.addTarget(self, action: #selector(segueToListVC), for: .touchUpInside)
+        view.addSubview(listButton)
+    }
+    
+    @objc func segueToListVC() {
+        performSegue(withIdentifier: "ToListVC", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToListVC" {
+            let destination = segue.destination as! ListVC
+            destination.locationsArray = locationsArray
+            destination.currentPage = currentPage
+        }
+    }
+    
+    @IBAction func unwindFromListVC(sender: UIStoryboardSegue) {
+        pageControl.numberOfPages = locationsArray.count
+        pageControl.currentPage = currentPage
+        setViewControllers([createDetailVC(forPage: currentPage)], direction: .forward, animated: false, completion: nil)
     }
     
     func createDetailVC(forPage page: Int) -> DetailVC {
@@ -87,4 +118,16 @@ extension PageVC: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
             pageControl.currentPage = currentViewController.currentPage
         }
     }
+    
+    @objc func pageControlPressed() {
+        if let currentViewController = self.viewControllers?[0] as? DetailVC {
+            currentPage = currentViewController.currentPage
+        }
+        if pageControl.currentPage < currentPage {
+            setViewControllers([createDetailVC(forPage: pageControl.currentPage)], direction: .reverse, animated: true, completion: nil)
+        } else if pageControl.currentPage > currentPage {
+            setViewControllers([createDetailVC(forPage: pageControl.currentPage)], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
 }
