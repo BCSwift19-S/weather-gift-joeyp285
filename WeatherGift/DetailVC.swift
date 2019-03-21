@@ -39,9 +39,22 @@ class DetailVC: UIViewController {
     }
     
     func updateUserInterface() {
+        let location = locationsArray[currentPage]
         locationLabel.text = locationsArray[currentPage].name
+        let dateString = formatTimeForTimeZone(unixDate: location.currentTime, timeZone: location.timeZone)
         temperatureLabel.text = locationsArray[currentPage].currentTemp
         print("%%% curentTemp inside updateUserInterface = \(locationsArray[currentPage].currentTemp)")
+        summaryLabel.text = location.dailySummary
+        currentImage.image = UIImage(named: locationsArray[currentPage].currentIcon)
+    }
+    
+    func formatTimeForTimeZone(unixDate: TimeInterval, timeZone: String) -> String {
+        let usableDate = Date(timeIntervalSince1970: unixDate)
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM dd, y"
+        dateFormatter.timeZone = TimeZone(identifier: timeZone)
+        let dateString = dateFormatter.string(from: usableDate)
+        return dateString
     }
     
 }
