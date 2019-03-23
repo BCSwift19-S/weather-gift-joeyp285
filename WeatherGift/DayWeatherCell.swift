@@ -10,7 +10,7 @@ import UIKit
 
 private var dateFormatter: DateFormatter {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE, MMM dd, y"
+    dateFormatter.dateFormat = "EEEE"
     return dateFormatter
 }
 
