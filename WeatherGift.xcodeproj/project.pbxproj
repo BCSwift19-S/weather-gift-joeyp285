@@ -11,7 +11,8 @@
 		7C0A583D224537840063A654 /* DayWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A583C224537840063A654 /* DayWeatherCell.swift */; };
 		7C0A583F224571810063A654 /* TimeInterval+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A583E224571810063A654 /* TimeInterval+format.swift */; };
 		7C0A584122469EC70063A654 /* HourlyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A584022469EC70063A654 /* HourlyWeatherCell.swift */; };
-		7CB43F41223A11B100547ED6 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB43F40223A11B100547ED6 /* WeatherLocation.swift */; };
+		7C0A584322480DCE0063A654 /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A584222480DCE0063A654 /* WeatherLocation.swift */; };
+		7CB43F41223A11B100547ED6 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB43F40223A11B100547ED6 /* WeatherDetail.swift */; };
 		7CB43F43223B6A9200547ED6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB43F42223B6A9200547ED6 /* Constants.swift */; };
 		7CD32CE12234BB7C001F3356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD32CE02234BB7C001F3356 /* AppDelegate.swift */; };
 		7CD32CE62234BB7C001F3356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CD32CE42234BB7C001F3356 /* Main.storyboard */; };
@@ -28,7 +29,8 @@
 		7C0A583C224537840063A654 /* DayWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWeatherCell.swift; sourceTree = "<group>"; };
 		7C0A583E224571810063A654 /* TimeInterval+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+format.swift"; sourceTree = "<group>"; };
 		7C0A584022469EC70063A654 /* HourlyWeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherCell.swift; sourceTree = "<group>"; };
-		7CB43F40223A11B100547ED6 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
+		7C0A584222480DCE0063A654 /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
+		7CB43F40223A11B100547ED6 /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
 		7CB43F42223B6A9200547ED6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7CD32CDD2234BB7C001F3356 /* WeatherGift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherGift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CD32CE02234BB7C001F3356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +77,8 @@
 		7CD32CDF2234BB7C001F3356 /* WeatherGift */ = {
 			isa = PBXGroup;
 			children = (
-				7CB43F40223A11B100547ED6 /* WeatherLocation.swift */,
+				7CB43F40223A11B100547ED6 /* WeatherDetail.swift */,
+				7C0A584222480DCE0063A654 /* WeatherLocation.swift */,
 				7CD32CE02234BB7C001F3356 /* AppDelegate.swift */,
 				7CD32CF22234BBF8001F3356 /* DetailVC.swift */,
 				7C0A583C224537840063A654 /* DayWeatherCell.swift */,
@@ -256,9 +259,10 @@
 			files = (
 				7C0A583D224537840063A654 /* DayWeatherCell.swift in Sources */,
 				7C0A584122469EC70063A654 /* HourlyWeatherCell.swift in Sources */,
-				7CB43F41223A11B100547ED6 /* WeatherLocation.swift in Sources */,
+				7CB43F41223A11B100547ED6 /* WeatherDetail.swift in Sources */,
 				7CD32CF52234BF66001F3356 /* ListVC.swift in Sources */,
 				7CD32CF72234CEF0001F3356 /* PageVC.swift in Sources */,
+				7C0A584322480DCE0063A654 /* WeatherLocation.swift in Sources */,
 				7C0A583F224571810063A654 /* TimeInterval+format.swift in Sources */,
 				7CD32CE12234BB7C001F3356 /* AppDelegate.swift in Sources */,
 				7CD32CF32234BBF8001F3356 /* DetailVC.swift in Sources */,

@@ -24,9 +24,9 @@ class PageVC: UIPageViewController {
         delegate = self
         dataSource = self
         
-        var newLocation = WeatherLocation()
-        newLocation.name = "Unkown Weather Location"
+        var newLocation = WeatherLocation(name: "", coordinates: "")
         locationsArray.append(newLocation)
+        locadLocations()
         
         setViewControllers([createDetailVC(forPage: 0)], direction: .forward
             , animated: false, completion: nil)
@@ -36,6 +36,19 @@ class PageVC: UIPageViewController {
         super.viewDidAppear(animated)
         configurePageControl()
         configureListButton()
+    }
+    
+    func locadLocations() {
+        guard let locationsEconded = UserDefaults.standard.value(forKey: "locationsArray") as? Data else {
+            print("Could not load locationsArray data from UserDefaults.")
+            return
+        }
+        let decoder = JSONDecoder()
+        if let locationsArray = try? decoder.decode(Array.self, from: locationsEncoded) as [WeatherLocation] {
+            self.locationsArray = locationsArray
+        } else {
+            print("Error: couldn't decode data read from UserDefaults.")
+        }
     }
     
     func configurePageControl() {
